@@ -1,29 +1,26 @@
-/*Необходимо выполнить в отдельном JS файле, подключенному к отдельной HTML странице
+'use strict'
 
-1) Создать переменную num со значением 266219 (тип данных число)
+let lang = document.documentElement.lang,
+    daysOfWeekRu = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+    daysOfWeekEn = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 
-2) Вывести в консоль произведение (умножение) цифр этого числа
-Например: число 123, при помощи javaScript получить каждое цифру ( 1, 2, 3 ) и перемножить их.
-Правильно использовать цикл или методы перебора.
-
-3) Полученный результат возвести в степень 3, используя только 1 оператор (Math.pow не подходит)
-4) Вывести в консоль первые 2 цифры полученного числа
-5) В отдельном репозитории для усложненных уроков, добавить папку или ветку со вторым уроком в свой репозиторий на GitHub*/
-
-let num = 266219,
-    multi = 1,
-    multiStr = '';
-
-console.log(num);
-
-while (num > 0) {
-    multi *= (num % 10);
-    num = Math.trunc(num / 10);
+if (lang === 'ru') {
+    console.log(daysOfWeekRu);
+} else {
+    console.log(daysOfWeekEn);
 }
 
-console.log(multi);
+switch (lang) {
+    case 'ru':
+        console.log(daysOfWeekRu);
+        break;
+    case 'en':
+        console.log(daysOfWeekEn);
+        break;
+    default:
+        console.log('Is not lang');
+}
 
-multi = multi ** 3;
-multiStr = String(multi);
+let daysOfWeek = [daysOfWeekRu, daysOfWeekEn];
 
-console.log(multiStr.substr(0, 2));
+console.log(lang === 'ru' ? daysOfWeek[0] : daysOfWeek[1]);
