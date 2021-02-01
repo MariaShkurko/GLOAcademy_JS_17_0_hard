@@ -10,20 +10,17 @@
 4) Вывести в консоль первые 2 цифры полученного числа
 5) В отдельном репозитории для усложненных уроков, добавить папку или ветку со вторым уроком в свой репозиторий на GitHub*/
 
-let num = 266219,
-    multi = 1,
-    multiStr = '';
+let num = 266219;
 
 console.log(num);
 
-while (num > 0) {
-    multi *= (num % 10);
-    num = Math.trunc(num / 10);
-}
+let mult = num.toString().split('').reduce(function(multi, number) {
+    return multi *= Number(number);
+}, 1);
 
-console.log(multi);
+console.log(mult);
 
-multi = multi ** 3;
-multiStr = String(multi);
+console.log(String(mult ** 3).substr(0, 2));
 
-console.log(multiStr.substr(0, 2));
+
+
