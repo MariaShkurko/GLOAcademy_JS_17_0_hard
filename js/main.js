@@ -24,3 +24,7 @@ switch (lang) {
 let daysOfWeek = [daysOfWeekRu, daysOfWeekEn];
 
 console.log(lang === 'ru' ? daysOfWeek[0] : daysOfWeek[1]);
+
+let namePerson = 'Максим';
+
+console.log(namePerson === 'Артем' ? 'директор' : namePerson === 'Максим' ? 'преподаватель' : 'студент');
