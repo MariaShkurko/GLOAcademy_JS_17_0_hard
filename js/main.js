@@ -1,26 +1,13 @@
-/*Необходимо выполнить в отдельном JS файле, подключенному к отдельной HTML странице
+function fun(arg) {
+    if (typeof arg !== 'string') {
+        return 'Передана не функция';
+    } else {
+        return arg.trim().length > 30 ? arg.trim().substring(0, 30) + '...' : arg.trim();
+    }
+}
 
-1) Создать переменную num со значением 266219 (тип данных число)
-
-2) Вывести в консоль произведение (умножение) цифр этого числа
-Например: число 123, при помощи javaScript получить каждое цифру ( 1, 2, 3 ) и перемножить их.
-Правильно использовать цикл или методы перебора.
-
-3) Полученный результат возвести в степень 3, используя только 1 оператор (Math.pow не подходит)
-4) Вывести в консоль первые 2 цифры полученного числа
-5) В отдельном репозитории для усложненных уроков, добавить папку или ветку со вторым уроком в свой репозиторий на GitHub*/
-
-let num = 266219;
-
-console.log(num);
-
-let mult = num.toString().split('').reduce(function(multi, number) {
-    return multi *= Number(number);
-}, 1);
-
-console.log(mult);
-
-console.log(String(mult ** 3).substr(0, 2));
-
-
-
+console.log(fun(10));
+console.log(fun(true));
+console.log(fun('I am Maria'));
+console.log(fun('      Your dog     '));
+console.log(fun('   Hello! My name is Maria. What is your name?    '));
