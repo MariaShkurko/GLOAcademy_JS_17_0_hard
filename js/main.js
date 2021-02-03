@@ -1,13 +1,21 @@
-function fun(arg) {
-    if (typeof arg !== 'string') {
-        return 'Передана не функция';
-    } else {
-        return arg.trim().length > 30 ? arg.trim().substring(0, 30) + '...' : arg.trim();
-    }
-}
+let arr = [
+    '125555594412125451521',
+    '254151254510',
+    '151521245231513515',
+    '454154854536',
+    '701214521212311',
+    '249885210.53',
+    '535416355211525415684'
+];
 
-console.log(fun(10));
-console.log(fun(true));
-console.log(fun('I am Maria'));
-console.log(fun('      Your dog     '));
-console.log(fun('   Hello! My name is Maria. What is your name?    '));
+arr.forEach(element => {
+    if (element[0] == '2' || element[0] == '4') {
+        console.log(element);
+    }
+});
+
+let simpleNumbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+
+simpleNumbers.forEach(element => {
+    console.log(element + '\tДелители этого числа: 1 и ' + element);
+});
