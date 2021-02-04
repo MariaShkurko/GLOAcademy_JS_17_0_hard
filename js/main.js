@@ -59,8 +59,14 @@ const sieveOfEratosthenes = function (n) {
 console.log('');
 console.log('Сравнение результатов эталонного массива, алгоритма простого перебора и алгоритма Решето Эратосфена');
 console.log(simple);
+
+console.time('checkFor');
 console.log(simpleNumbers(100));
+console.timeEnd('checkFor');
+
+console.time('checkFor');
 console.log(sieveOfEratosthenes(100));
+console.timeEnd('checkFor');
 
 console.log('');
 console.log('Вывод результатов алгоритма Решето Эратосфена в требуемом формате');
