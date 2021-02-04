@@ -42,6 +42,10 @@ const sieveOfEratosthenes = function (n) {
     }
 
     for (let j = 0; j < simpleNumbers.length; j++) {
+        if (simpleNumbers[j] > n/2) {
+            break;
+        }
+
         let arr = simpleNumbers;
 
         for (let i = j + 1; i < simpleNumbers.length; i++) {
