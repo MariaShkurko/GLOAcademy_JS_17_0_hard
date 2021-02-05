@@ -16,15 +16,15 @@ currentDayOfWeek = currentDayOfWeek === (-1) ? 6 : currentDayOfWeek;
 console.log(week[currentDayOfWeek]);
 
 for (const day of week) {
-    let style = '';
+    let style = 'margin: 5px 0; ';
 
     if (day === week[currentDayOfWeek]) {
-        style = 'font-weight: bold; ';
+        style += 'font-weight: bold; ';
     }
 
     if (day === week[5] || day === week[6]) {
         style += 'font-style: italic; ';
     }
 
-    console.log('%c%s', style, day);
+    document.write('<p style="' + style + '">' + day + '</p>');
 }
