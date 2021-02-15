@@ -203,8 +203,14 @@ let appData = {
     }
 };
 
-// тут должна быть обработка кнопки (не нажимать, пока не введут месячный доход)
-buttonStart.addEventListener('click', appData.start);
+buttonStart.addEventListener('click', () => {
+    if (salaryAmount.value !== '' && isNumber(salaryAmount.value)) {
+        appData.start();
+    } else {
+        salaryAmount.value = '';
+        alert('Введите число в поле "Месячный доход"');
+    }
+});
 
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
