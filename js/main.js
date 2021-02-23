@@ -12,6 +12,20 @@ const formattingString = (str) => {
     return str[0].toUpperCase() + str.slice(1);
 }
 
+const validate = () => {
+    const input = document.querySelectorAll('input[type=text]');
+
+    input.forEach((item) => {
+        item.addEventListener('input', () => {
+            if (item.placeholder === 'Наименование') {
+                item.value = item.value.replace(/[^а-яёА-ЯЁ .,-]/, '');
+            } else if (item.placeholder === 'Сумма') {
+                item.value = item.value.replace(/[^0-9]/, '');
+            }
+        })
+    })
+}
+
 const buttonStart = document.getElementById('start'),
     buttonPlus = document.querySelectorAll('.btn_plus'),
     incomePlus = buttonPlus[0],
@@ -94,6 +108,8 @@ let appData = {
         if (expensesItems.length === 3) {
             expensesPlus.style.display = 'none';
         }
+
+        validate();
     },
 
     addIncomeBlock: function () {
@@ -108,6 +124,8 @@ let appData = {
         if (incomeItems.length === 3) {
             incomePlus.style.display = 'none';
         }
+
+        validate();
     },
 
     getExpenses: function () {
@@ -218,45 +236,4 @@ periodSelect.addEventListener('input', () => {
     periodValue.textContent = periodSelect.value;
 });
 
-// оформить валидацию через две функции: 1) валидирует наименования, 2) валидирует суммы
-salaryAmount.addEventListener('input', () => {
-    salaryAmount.value = salaryAmount.value.replace(/[^0-9]/, '');
-});
-
-incomeItems.forEach((item) => {
-    let itemTitle = item.querySelector('.income-title'),
-        itemAmount = item.querySelector('.income-amount');
-
-    itemTitle.addEventListener('input', () => {
-        itemTitle.value = itemTitle.value.replace(/[^а-яёА-ЯЁ .,-]/, '');
-    });
-    itemAmount.addEventListener('input', () => {
-        itemAmount.value = itemAmount.value.replace(/[^0-9]/, '');
-    });
-});
-
-expensesItems.forEach((item) => {
-    let itemTitle = item.querySelector('.expenses-title'),
-        itemAmount = item.querySelector('.expenses-amount');
-
-    itemTitle.addEventListener('input', () => {
-        itemTitle.value = itemTitle.value.replace(/[^а-яёА-ЯЁ .,-]/, '');
-    });
-    itemAmount.addEventListener('input', () => {
-        itemAmount.value = itemAmount.value.replace(/[^0-9]/, '');
-    });
-});
-
-additionalIncomeItem.forEach((item) => {
-    item.addEventListener('input', () => {
-        item.value = item.value.replace(/[^а-яёА-ЯЁ .,-]/, '');
-    });
-});
-
-additionalExpensesItem.addEventListener('input', () => {
-    additionalExpensesItem.value = additionalExpensesItem.value.replace(/[^а-яёА-ЯЁ .,-]/, '');
-});
-
-targetAmount.addEventListener('input', () => {
-    targetAmount.value = targetAmount.value.replace(/[^0-9]/, '');
-});
+validate();
